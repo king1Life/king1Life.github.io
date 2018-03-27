@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-25T09:13:28.129Z</updated>
+  <updated>2018-03-27T11:12:53.741Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo+git+hexo搭建静态博客，主题、背景、点赞等优化1111111111</title>
+    <link href="http://yoursite.com/2018/03/27/hexo-git-hexo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%B8%BB%E9%A2%98%E3%80%81%E8%83%8C%E6%99%AF%E3%80%81%E7%82%B9%E8%B5%9E%E7%AD%89%E4%BC%98%E5%8C%961111111111/"/>
+    <id>http://yoursite.com/2018/03/27/hexo-git-hexo搭建静态博客，主题、背景、点赞等优化1111111111/</id>
+    <published>2018-03-27T11:10:05.000Z</published>
+    <updated>2018-03-27T11:12:53.741Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome</p>]]></content>
+    
+    <summary type="html">
+    
+      1133erdffd
+    
+    </summary>
+    
+    
+      <category term="dafddf" scheme="http://yoursite.com/tags/dafddf/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
