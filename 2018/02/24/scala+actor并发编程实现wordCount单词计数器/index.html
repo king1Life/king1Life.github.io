@@ -81,16 +81,17 @@
 
 
 
-<meta name="description" content="To be a man means a lot">
-<meta property="og:type" content="website">
-<meta property="og:title" content="King1Lfe">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="##需求 scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。##思路   通过loop +react 方式去不断的接受消息 利用case class样例类去匹配对应的操作 其中scala中提供了文件读取的接口Source,通过调用其fromFile方法去获取文件内容 将每个文件的单词数量进行局部汇总，存放在一个Li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scala + actor 并发编程,单机版本的单词计数器WordCount(简易原理)">
+<meta property="og:url" content="http://yoursite.com/2018/02/24/scala+actor并发编程实现wordCount单词计数器/index.html">
 <meta property="og:site_name" content="King1Lfe">
-<meta property="og:description" content="To be a man means a lot">
+<meta property="og:description" content="##需求 scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。##思路   通过loop +react 方式去不断的接受消息 利用case class样例类去匹配对应的操作 其中scala中提供了文件读取的接口Source,通过调用其fromFile方法去获取文件内容 将每个文件的单词数量进行局部汇总，存放在一个Li">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T06:10:33.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="King1Lfe">
-<meta name="twitter:description" content="To be a man means a lot">
+<meta name="twitter:title" content="scala + actor 并发编程,单机版本的单词计数器WordCount(简易原理)">
+<meta name="twitter:description" content="##需求 scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。##思路   通过loop +react 方式去不断的接受消息 利用case class样例类去匹配对应的操作 其中scala中提供了文件读取的接口Source,通过调用其fromFile方法去获取文件内容 将每个文件的单词数量进行局部汇总，存放在一个Li">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/24/scala+actor并发编程实现wordCount单词计数器/"/>
 
 
 
 
 
-  <title>King1Lfe</title>
+  <title>scala + actor 并发编程,单机版本的单词计数器WordCount(简易原理) | King1Lfe</title>
   
 
 
@@ -148,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,420 +252,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/aaaaaa/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jason">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar11.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="King1Lfe">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/29/aaaaaa/" itemprop="url">aaaaaa</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T13:59:28+08:00">
-                2018-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/03/29/aaaaaa/" class="leancloud_visitors" data-flag-title="aaaaaa">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/29/aaaaaa/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/hexo-git-hexo搭建静态博客，主题、背景、点赞等优化1111111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jason">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar11.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="King1Lfe">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/hexo-git-hexo搭建静态博客，主题、背景、点赞等优化1111111111/" itemprop="url">hexo+git+hexo搭建静态博客，主题、背景、点赞等优化1111111111</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T19:10:05+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/03/27/hexo-git-hexo搭建静态博客，主题、背景、点赞等优化1111111111/" class="leancloud_visitors" data-flag-title="hexo+git+hexo搭建静态博客，主题、背景、点赞等优化1111111111">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          1133erdffd
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/27/hexo-git-hexo搭建静态博客，主题、背景、点赞等优化1111111111/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jason">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar11.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="King1Lfe">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T12:54:48+08:00">
-                2018-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/03/24/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-M
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/24/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -695,9 +284,7 @@ M
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/24/scala+actor并发编程实现wordCount单词计数器/" itemprop="url">scala + actor 并发编程,单机版本的单词计数器WordCount(简易原理)</a></h1>
+          <h1 class="post-title" itemprop="name headline">scala + actor 并发编程,单机版本的单词计数器WordCount(简易原理)</h1>
         
 
         <div class="post-meta">
@@ -758,29 +345,19 @@ M
       
 
       
-        
-          
-          ##需求
-scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。##思路
+        <p>##需求</p>
+<h4 id="scala-actor并发编程-写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。"><a href="#scala-actor并发编程-写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。" class="headerlink" title="scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。"></a>scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。</h4><p>##思路</p>
+<blockquote>
+<ul>
+<li>通过loop +react 方式去不断的接受消息</li>
+<li>利用case class样例类去匹配对应的操作</li>
+<li>其中scala中提供了文件读取的接口Source,通过调用其fromFile方法去获取文件内容</li>
+<li>将每个文件的单词数量进行局部汇总，存放在一个ListBuffer中</li>
+<li>最后将ListBuffer中的结果进行全局汇总。</li>
+</ul>
+</blockquote>
+<p>##代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">import scala.actors.&#123;Actor, Future&#125;</span><br><span class="line">import scala.collection.mutable</span><br><span class="line">import scala.collection.mutable.ListBuffer</span><br><span class="line">import scala.io.Source</span><br><span class="line"></span><br><span class="line">//Actor 负责 解析每一个文件,把文件的结果返回</span><br><span class="line"></span><br><span class="line">// 定义存储数据的样例类</span><br><span class="line">//一个作为消息,说明提交文件的路径</span><br><span class="line">case class SumitTask(file:String);</span><br><span class="line">//一作保存每一个文件的单词数量</span><br><span class="line">case class ResultTask(result:Map[String,Int]);</span><br><span class="line"></span><br><span class="line">class WordCountTask extends Actor&#123;</span><br><span class="line">  override def act(): Unit = &#123;</span><br><span class="line">    loop &#123;</span><br><span class="line">      react&#123;</span><br><span class="line">      case SumitTask(file)</span><br><span class="line">      =&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        //1,读取数据文件</span><br><span class="line">        val data: String = Source.fromFile(file).mkString;</span><br><span class="line">        //2,将文件数据进行按行切分,一行.在window下是 \r\n,在 linux下是 \n 在mac下是\r</span><br><span class="line">        val LineArray: Array[String] = data.split(&quot;\r\n&quot;);</span><br><span class="line">        //3,将每一行按空格切分(数据暂先按照空格来分),得到所欲单词</span><br><span class="line">        val words: Array[String] = LineArray.flatMap(_.split(&quot; &quot;));</span><br><span class="line">        //4,给每个单词统计标记为1个,单词 和 标记 1 组成元组</span><br><span class="line">        val wordMark: Array[(String, Int)] = words.map((_, 1));</span><br><span class="line">        //5,对相同的单词进行分组</span><br><span class="line">        val wordSameGrouop: Map[String, Array[(String, Int)]] = wordMark.groupBy(_._1);</span><br><span class="line">        //6,统计文件中单词出现的次数</span><br><span class="line">        val result: Map[String, Int] = wordSameGrouop.mapValues(_.length);</span><br><span class="line">        //7,结果,存储到样例类中,并返回</span><br><span class="line">        sender ! ResultTask(result);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//WordCount对象负责把文件传给actor ,然后接受接受每个文件的单词统计,做最后汇总</span><br><span class="line">object WordCount&#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line"></span><br><span class="line">    var fileArr=Array(&quot;D:/aa.txt&quot;,&quot;D:/bb.txt&quot;,&quot;D:/cc.txt&quot;);</span><br><span class="line">    var FutureSet = new mutable.HashSet[Future[Any]]();</span><br><span class="line">    var resultList = new ListBuffer[ResultTask];</span><br><span class="line"></span><br><span class="line">    //循环遍历文件,发送消息,接受数据</span><br><span class="line">    for(file&lt;-fileArr)&#123;</span><br><span class="line">      val task = new WordCountTask;</span><br><span class="line">      task.start();</span><br><span class="line">      val reply:Future[Any] = task !! SumitTask(file);</span><br><span class="line">      //将每次发送的文件返回的数据保存到可变的HashSet中</span><br><span class="line">      FutureSet += reply;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //搜集整合所有文件返回的数据</span><br><span class="line">    while(FutureSet.size &gt; 0)&#123;</span><br><span class="line">      val completedFuture : mutable.HashSet[Future[Any]] = FutureSet.filter(_.isSet);</span><br><span class="line">      for( oneCompletedFuture &lt;- completedFuture)&#123;</span><br><span class="line">        val apply: Any = oneCompletedFuture.apply();</span><br><span class="line">        resultList+= apply.asInstanceOf[ResultTask];</span><br><span class="line">        FutureSet-=oneCompletedFuture;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //整合所有数据</span><br><span class="line">    var resultLast = resultList.map(_.result).flatten.groupBy(_._1).mapValues(x=&gt;x.foldLeft(0)(_+_._2));</span><br><span class="line">    print(resultLast);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-
-通过loop +react 方式去不断的接受消息
-利用case class样例类去匹配对应的操作
-其中scala中提供了文件读取的接口Source,通过调用其fromFile方法去获取文件内容
-将每个文件的单词数量进行局部汇总，存放在一个ListBuffer中
-最后将ListBuffer中的结果进行全局汇总。
-
-
-##代码123456789
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/24/scala+actor并发编程实现wordCount单词计数器/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -790,6 +367,35 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Jason 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Jason 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -797,12 +403,28 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/24/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -812,10 +434,11 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -823,6 +446,10 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
 
 
           
+
+  
+
+
 
         </div>
         
@@ -843,8 +470,17 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -906,6 +542,22 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#scala-actor并发编程-写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。"><span class="nav-number">1.</span> <span class="nav-text">scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作为输入，计算完成后将多个任务汇总，得到最终的结果。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1046,6 +698,10 @@ scala + actor并发编程 ,写一个单机版的WordCount，将多个文件作�
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
